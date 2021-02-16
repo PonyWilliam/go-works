@@ -5,11 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/repository/work_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/work_repository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/server/work_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/server/work_server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/works.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/works.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/works.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/works.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.pb.micro.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proto/works.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

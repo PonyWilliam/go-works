@@ -1,8 +1,8 @@
 package server
 
 import (
-	"works/domain/model"
-	"works/domain/repository"
+	"github.com/PonyWilliam/go-works/domain/model"
+	"github.com/PonyWilliam/go-works/domain/repository"
 )
 
 type IWorkerServices interface {

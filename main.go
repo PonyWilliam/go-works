@@ -1,12 +1,12 @@
 package main
 
 import (
+	"github.com/PonyWilliam/go-works/domain/repository"
+	services2 "github.com/PonyWilliam/go-works/domain/server"
+	"github.com/PonyWilliam/go-works/handler"
+	works "github.com/PonyWilliam/go-works/proto"
 	"strconv"
 	"time"
-	"works/domain/repository"
-	services2 "works/domain/server"
-	"works/handler"
-	works "works/proto"
 
 	common "github.com/PonyWilliam/go-common"
 	_ "github.com/go-sql-driver/mysql"

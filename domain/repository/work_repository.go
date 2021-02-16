@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	"io"
-	"works/domain/model"
+	"github.com/PonyWilliam/go-works/domain/model"
 )
 
 type IWorker interface {

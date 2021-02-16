@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 	common "github.com/PonyWilliam/go-common"
-	"works/domain/model"
-	work "works/domain/server"
-	works "works/proto"
+	"github.com/PonyWilliam/go-works/domain/model"
+	work "github.com/PonyWilliam/go-works/domain/server"
+	works "github.com/PonyWilliam/go-works/proto"
 )
 
 type Works struct{
