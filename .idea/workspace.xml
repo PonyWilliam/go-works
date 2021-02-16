@@ -3,7 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6e10087d-df5a-49a5-b61f-3ac547b755f8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/repository/work_repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/repository/work_repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/server/work_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/server/work_server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/works.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/works.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/works.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/works.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.pb.micro.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/works.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +37,22 @@
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
+  </component>
+  <component name="RunManager">
+    <configuration name="go build works" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="works" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="works" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build works" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">

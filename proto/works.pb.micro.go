@@ -62,7 +62,7 @@ type WorksService interface {
 	FindWorkerByNums(ctx context.Context, in *Request_Workers_Nums, opts ...client.CallOption) (*Response_Worker_Show, error)
 	FindWorkerByName(ctx context.Context, in *Request_Workers_Name, opts ...client.CallOption) (*Response_Workers_Show, error)
 	FindAll(ctx context.Context, in *Request_Null, opts ...client.CallOption) (*Response_Workers_Show, error)
-	CreateToken(ctx context.Context, in *LoginRequest, opts ...client.CallOption) (*LoginResponse, error)
+	CheckSum(ctx context.Context, in *LoginRequest, opts ...client.CallOption) (*LoginResponse, error)
 }
 
 type worksService struct {
@@ -147,8 +147,8 @@ func (c *worksService) FindAll(ctx context.Context, in *Request_Null, opts ...cl
 	return out, nil
 }
 
-func (c *worksService) CreateToken(ctx context.Context, in *LoginRequest, opts ...client.CallOption) (*LoginResponse, error) {
-	req := c.c.NewRequest(c.name, "Works.CreateToken", in)
+func (c *worksService) CheckSum(ctx context.Context, in *LoginRequest, opts ...client.CallOption) (*LoginResponse, error) {
+	req := c.c.NewRequest(c.name, "Works.CheckSum", in)
 	out := new(LoginResponse)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -167,7 +167,7 @@ type WorksHandler interface {
 	FindWorkerByNums(context.Context, *Request_Workers_Nums, *Response_Worker_Show) error
 	FindWorkerByName(context.Context, *Request_Workers_Name, *Response_Workers_Show) error
 	FindAll(context.Context, *Request_Null, *Response_Workers_Show) error
-	CreateToken(context.Context, *LoginRequest, *LoginResponse) error
+	CheckSum(context.Context, *LoginRequest, *LoginResponse) error
 }
 
 func RegisterWorksHandler(s server.Server, hdlr WorksHandler, opts ...server.HandlerOption) error {
@@ -179,7 +179,7 @@ func RegisterWorksHandler(s server.Server, hdlr WorksHandler, opts ...server.Han
 		FindWorkerByNums(ctx context.Context, in *Request_Workers_Nums, out *Response_Worker_Show) error
 		FindWorkerByName(ctx context.Context, in *Request_Workers_Name, out *Response_Workers_Show) error
 		FindAll(ctx context.Context, in *Request_Null, out *Response_Workers_Show) error
-		CreateToken(ctx context.Context, in *LoginRequest, out *LoginResponse) error
+		CheckSum(ctx context.Context, in *LoginRequest, out *LoginResponse) error
 	}
 	type Works struct {
 		works
@@ -220,6 +220,6 @@ func (h *worksHandler) FindAll(ctx context.Context, in *Request_Null, out *Respo
 	return h.WorksHandler.FindAll(ctx, in, out)
 }
 
-func (h *worksHandler) CreateToken(ctx context.Context, in *LoginRequest, out *LoginResponse) error {
-	return h.WorksHandler.CreateToken(ctx, in, out)
+func (h *worksHandler) CheckSum(ctx context.Context, in *LoginRequest, out *LoginResponse) error {
+	return h.WorksHandler.CheckSum(ctx, in, out)
 }

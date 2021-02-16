@@ -13,6 +13,7 @@ type IWorkerServices interface {
 	FindWorkerByNums(int64)(model.Workers,error)
 	FindWorkersByName(string)([]model.Workers,error)
 	FindAll()([]model.Workers,error)
+	CheckSum(string,string) bool
 }
 func NewWorkerServices(worker repository.IWorker)IWorkerServices{
 	return &WorkServices{worker}
@@ -41,4 +42,7 @@ func(w *WorkServices) FindWorkersByName(name string)([]model.Workers,error){
 }
 func(w *WorkServices) FindAll()([]model.Workers,error){
 	return w.worker.FindAll()
+}
+func(w *WorkServices)CheckSum(username string,password string)bool{
+	return w.worker.CheckSum(username,password)
 }

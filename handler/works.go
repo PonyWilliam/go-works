@@ -98,6 +98,29 @@ func(w *Works)FindAll(ctx context.Context,req *works.Request_Null,res *works.Res
 	}
 	return nil
 }
-func(w *Works)CreateToken(ctx context.Context,req *works.LoginRequest,rsp *works.LoginResponse) error{
+func(w *Works)FindWorkerByNums(ctx context.Context,req *works.Request_Workers_Nums,res *works.Response_Worker_Show) error{
+	worker,err := w.WorkService.FindWorkerByNums(req.Nums)
+	fmt.Println(worker)
+	workers := &works.Response_Workers_Info{}
+	if err!=nil{
+		return err
+	}
+	err = common.SwapTo(worker, workers)
+	if err != nil{
+		return err
+	}
+	res.Worker = workers
+	return nil
+}
+func(w *Works)CheckSum(ctx context.Context,req *works.LoginRequest,rsp *works.LoginResponse) error{
+	username := req.User
+	password := req.Password
+	if w.WorkService.CheckSum(username,password){
+		rsp.Code = true
+		rsp.Msg = "success"
+		return nil
+	}
+	rsp.Code = false
+	rsp.Msg = "password is not true"
 	return nil
 }
