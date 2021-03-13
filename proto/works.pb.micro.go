@@ -61,6 +61,7 @@ type WorksService interface {
 	FindWorkerByID(ctx context.Context, in *Request_Workers_ID, opts ...client.CallOption) (*Response_Worker_Show, error)
 	FindWorkerByNums(ctx context.Context, in *Request_Workers_Nums, opts ...client.CallOption) (*Response_Worker_Show, error)
 	FindWorkerByName(ctx context.Context, in *Request_Workers_Name, opts ...client.CallOption) (*Response_Workers_Show, error)
+	FindWorkerByUserName(ctx context.Context, in *Request_Worker_User, opts ...client.CallOption) (*Response_Worker_Show, error)
 	FindAll(ctx context.Context, in *Request_Null, opts ...client.CallOption) (*Response_Workers_Show, error)
 	CheckSum(ctx context.Context, in *LoginRequest, opts ...client.CallOption) (*LoginResponse, error)
 }
@@ -137,6 +138,16 @@ func (c *worksService) FindWorkerByName(ctx context.Context, in *Request_Workers
 	return out, nil
 }
 
+func (c *worksService) FindWorkerByUserName(ctx context.Context, in *Request_Worker_User, opts ...client.CallOption) (*Response_Worker_Show, error) {
+	req := c.c.NewRequest(c.name, "Works.FindWorkerByUserName", in)
+	out := new(Response_Worker_Show)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *worksService) FindAll(ctx context.Context, in *Request_Null, opts ...client.CallOption) (*Response_Workers_Show, error) {
 	req := c.c.NewRequest(c.name, "Works.FindAll", in)
 	out := new(Response_Workers_Show)
@@ -166,6 +177,7 @@ type WorksHandler interface {
 	FindWorkerByID(context.Context, *Request_Workers_ID, *Response_Worker_Show) error
 	FindWorkerByNums(context.Context, *Request_Workers_Nums, *Response_Worker_Show) error
 	FindWorkerByName(context.Context, *Request_Workers_Name, *Response_Workers_Show) error
+	FindWorkerByUserName(context.Context, *Request_Worker_User, *Response_Worker_Show) error
 	FindAll(context.Context, *Request_Null, *Response_Workers_Show) error
 	CheckSum(context.Context, *LoginRequest, *LoginResponse) error
 }
@@ -178,6 +190,7 @@ func RegisterWorksHandler(s server.Server, hdlr WorksHandler, opts ...server.Han
 		FindWorkerByID(ctx context.Context, in *Request_Workers_ID, out *Response_Worker_Show) error
 		FindWorkerByNums(ctx context.Context, in *Request_Workers_Nums, out *Response_Worker_Show) error
 		FindWorkerByName(ctx context.Context, in *Request_Workers_Name, out *Response_Workers_Show) error
+		FindWorkerByUserName(ctx context.Context, in *Request_Worker_User, out *Response_Worker_Show) error
 		FindAll(ctx context.Context, in *Request_Null, out *Response_Workers_Show) error
 		CheckSum(ctx context.Context, in *LoginRequest, out *LoginResponse) error
 	}
@@ -214,6 +227,10 @@ func (h *worksHandler) FindWorkerByNums(ctx context.Context, in *Request_Workers
 
 func (h *worksHandler) FindWorkerByName(ctx context.Context, in *Request_Workers_Name, out *Response_Workers_Show) error {
 	return h.WorksHandler.FindWorkerByName(ctx, in, out)
+}
+
+func (h *worksHandler) FindWorkerByUserName(ctx context.Context, in *Request_Worker_User, out *Response_Worker_Show) error {
+	return h.WorksHandler.FindWorkerByUserName(ctx, in, out)
 }
 
 func (h *worksHandler) FindAll(ctx context.Context, in *Request_Null, out *Response_Workers_Show) error {

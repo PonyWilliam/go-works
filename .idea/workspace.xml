@@ -7,6 +7,9 @@
       <change beforePath="$PROJECT_DIR$/domain/server/work_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/domain/server/work_server.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/works.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/works.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/works.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/works.pb.micro.go" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.pb.micro.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proto/works.proto" beforeDir="false" afterPath="$PROJECT_DIR$/proto/works.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +38,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="go.vgo" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Go Build.go build github.com/PonyWilliam/go-works">
+    <configuration name="go build github.com/PonyWilliam/go-works" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="works" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="github.com/PonyWilliam/go-works" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build works" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="works" />
       <working_directory value="$PROJECT_DIR$" />
@@ -47,6 +59,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build github.com/PonyWilliam/go-works" />
         <item itemvalue="Go Build.go build works" />
       </list>
     </recent_temporary>

@@ -23,6 +23,7 @@ service Works {
 	rpc FindWorkerByID(Request_Workers_ID)returns(Response_Worker_Show);
 	rpc FindWorkerByNums(Request_Workers_Nums)returns(Response_Worker_Show);
 	rpc FindWorkerByName(Request_Workers_Name)returns(Response_Workers_Show);
+	rpc FindWorkerByUserName(Request_Worker_User)returns(Response_Worker_Show);
 	rpc FindAll(Request_Null)returns(Response_Workers_Show);
 	rpc CheckSum(LoginRequest)returns(LoginResponse);
 }
@@ -83,4 +84,7 @@ message Response_Workers_Info{
 	string Mail = 9;
 	string Description = 10;
 	bool ISWork = 11;
+}
+message Request_Worker_User{
+	string Username = 1;
 }

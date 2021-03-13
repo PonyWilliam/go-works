@@ -3,9 +3,9 @@ package repository
 import (
 	"crypto/md5"
 	"fmt"
+	"github.com/PonyWilliam/go-works/domain/model"
 	"github.com/jinzhu/gorm"
 	"io"
-	"github.com/PonyWilliam/go-works/domain/model"
 )
 
 type IWorker interface {
@@ -16,6 +16,7 @@ type IWorker interface {
 	FindWorkerByID(int64)(model.Workers,error)
 	FindWorkerByNums(int64)(model.Workers,error)
 	FindWorkersByName(string)([]model.Workers,error)
+	FindWorkerByUserName(string)(model.Workers,error)
 	FindAll()([]model.Workers,error)
 	CheckSum(string,string)bool
 }
@@ -32,11 +33,13 @@ func (w *WorkersRepository) InitTable() error{
 	return w.mysqlDB.CreateTable(&model.Workers{}).Error
 }
 func (w *WorkersRepository) CreateWorker(worker *model.Workers) (int64,error){
-	worker.Password = EncodeMD5(worker.Username + worker.Password)
+	fmt.Println(worker.Username)
+	worker.Password = EncodeMD5(worker.Password)
+	fmt.Println(worker.Username)
 	return worker.ID,w.mysqlDB.Model(worker).Create(&worker).Error
 }
 func (w *WorkersRepository) UpdateWorker(worker *model.Workers) (int64,error){
-	worker.Password = EncodeMD5(worker.Username + worker.Password)
+	worker.Password = EncodeMD5(worker.Password)
 	return worker.ID,w.mysqlDB.Model(worker).Update(&worker).Error
 }
 func (w *WorkersRepository) DeleteWorkerByID(id int64) error{
@@ -54,11 +57,17 @@ func (w *WorkersRepository) FindWorkersByName(name string) (workers []model.Work
 func (w *WorkersRepository) FindAll() (workers []model.Workers,err error){
 	return workers,w.mysqlDB.Model(&model.Workers{}).Find(&workers).Error
 }
+func (w *WorkersRepository) FindWorkerByUserName(username string)(worker model.Workers,err error){
+	return worker,w.mysqlDB.Model(&model.Workers{}).Where("username = ?",username).Error
+}
 func (w *WorkersRepository)CheckSum(username string,pwd string)bool{
 
-	temp := EncodeMD5(username + pwd)
+	temp := EncodeMD5(pwd)
 	worker := model.Workers{}
-	w.mysqlDB.Model(&model.Workers{}).Where("username = ?",username).Find(&worker)
+	fmt.Println("username:" + username)
+	w.mysqlDB.Where("username = ?",username).Find(&worker)
+	fmt.Println("password:" + temp)
+	fmt.Println("sql:" + worker.Password)
 	if worker.Password == temp{
 		return true
 	}else{
@@ -68,6 +77,6 @@ func (w *WorkersRepository)CheckSum(username string,pwd string)bool{
 func EncodeMD5(pwd string)string{
 	h := md5.New()
 	_, _ = io.WriteString(h,pwd)
-	sum := fmt.Sprintf("%x",h.Sum([]byte("123")))
+	sum := fmt.Sprintf("%x",h.Sum([]byte("123")))//独立签名
 	return sum
 }

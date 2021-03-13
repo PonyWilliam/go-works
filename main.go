@@ -61,7 +61,6 @@ func main() {
 
 	WorkServices := services2.NewWorkerServices(repository.NewWorkerRepository(db))
 	err = works.RegisterWorksHandler(srv.Server(),&handler.Works{WorkService:WorkServices})
-
 	if err:=srv.Run();err!=nil{
 		log.Fatal(err)
 	}
