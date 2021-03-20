@@ -18,7 +18,7 @@ option go_package = "proto;works";
 
 service Works {
 	rpc CreateWorker(Request_Workers)returns(Response_CreateWorker);
-	rpc UpdateWorker(Request_Workers)returns(Response_CreateWorker);
+	rpc UpdateWorker(Request_Workers_Change)returns(Response_CreateWorker);
 	rpc DeleteWorkerByID(Request_Workers_ID)returns(Response_Workers);
 	rpc FindWorkerByID(Request_Workers_ID)returns(Response_Worker_Show);
 	rpc FindWorkerByNums(Request_Workers_Nums)returns(Response_Worker_Show);
@@ -47,8 +47,23 @@ message Request_Workers{
 	string Mail = 8;
 	string Description = 9;
 	bool ISWork = 10;
-	string username = 11;
-	string password = 12;
+	string Username = 11;
+	string Password = 12;
+}
+message Request_Workers_Change{
+	string Name = 1;
+	string Nums = 2;
+	string Sex = 3;
+	int64 Level = 4;
+	int64 Score = 5;
+	string Place = 6;
+	string Telephone = 7;
+	string Mail = 8;
+	string Description = 9;
+	bool ISWork = 10;
+	string Username = 11;
+	string Password = 12;
+	int64 Id = 13;
 }
 message Response_CreateWorker{
 	int64 id = 1;

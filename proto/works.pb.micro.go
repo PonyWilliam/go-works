@@ -56,7 +56,7 @@ func NewWorksEndpoints() []*api.Endpoint {
 
 type WorksService interface {
 	CreateWorker(ctx context.Context, in *Request_Workers, opts ...client.CallOption) (*Response_CreateWorker, error)
-	UpdateWorker(ctx context.Context, in *Request_Workers, opts ...client.CallOption) (*Response_CreateWorker, error)
+	UpdateWorker(ctx context.Context, in *Request_Workers_Change, opts ...client.CallOption) (*Response_CreateWorker, error)
 	DeleteWorkerByID(ctx context.Context, in *Request_Workers_ID, opts ...client.CallOption) (*Response_Workers, error)
 	FindWorkerByID(ctx context.Context, in *Request_Workers_ID, opts ...client.CallOption) (*Response_Worker_Show, error)
 	FindWorkerByNums(ctx context.Context, in *Request_Workers_Nums, opts ...client.CallOption) (*Response_Worker_Show, error)
@@ -88,7 +88,7 @@ func (c *worksService) CreateWorker(ctx context.Context, in *Request_Workers, op
 	return out, nil
 }
 
-func (c *worksService) UpdateWorker(ctx context.Context, in *Request_Workers, opts ...client.CallOption) (*Response_CreateWorker, error) {
+func (c *worksService) UpdateWorker(ctx context.Context, in *Request_Workers_Change, opts ...client.CallOption) (*Response_CreateWorker, error) {
 	req := c.c.NewRequest(c.name, "Works.UpdateWorker", in)
 	out := new(Response_CreateWorker)
 	err := c.c.Call(ctx, req, out, opts...)
@@ -172,7 +172,7 @@ func (c *worksService) CheckSum(ctx context.Context, in *LoginRequest, opts ...c
 
 type WorksHandler interface {
 	CreateWorker(context.Context, *Request_Workers, *Response_CreateWorker) error
-	UpdateWorker(context.Context, *Request_Workers, *Response_CreateWorker) error
+	UpdateWorker(context.Context, *Request_Workers_Change, *Response_CreateWorker) error
 	DeleteWorkerByID(context.Context, *Request_Workers_ID, *Response_Workers) error
 	FindWorkerByID(context.Context, *Request_Workers_ID, *Response_Worker_Show) error
 	FindWorkerByNums(context.Context, *Request_Workers_Nums, *Response_Worker_Show) error
@@ -185,7 +185,7 @@ type WorksHandler interface {
 func RegisterWorksHandler(s server.Server, hdlr WorksHandler, opts ...server.HandlerOption) error {
 	type works interface {
 		CreateWorker(ctx context.Context, in *Request_Workers, out *Response_CreateWorker) error
-		UpdateWorker(ctx context.Context, in *Request_Workers, out *Response_CreateWorker) error
+		UpdateWorker(ctx context.Context, in *Request_Workers_Change, out *Response_CreateWorker) error
 		DeleteWorkerByID(ctx context.Context, in *Request_Workers_ID, out *Response_Workers) error
 		FindWorkerByID(ctx context.Context, in *Request_Workers_ID, out *Response_Worker_Show) error
 		FindWorkerByNums(ctx context.Context, in *Request_Workers_Nums, out *Response_Worker_Show) error
@@ -209,7 +209,7 @@ func (h *worksHandler) CreateWorker(ctx context.Context, in *Request_Workers, ou
 	return h.WorksHandler.CreateWorker(ctx, in, out)
 }
 
-func (h *worksHandler) UpdateWorker(ctx context.Context, in *Request_Workers, out *Response_CreateWorker) error {
+func (h *worksHandler) UpdateWorker(ctx context.Context, in *Request_Workers_Change, out *Response_CreateWorker) error {
 	return h.WorksHandler.UpdateWorker(ctx, in, out)
 }
 

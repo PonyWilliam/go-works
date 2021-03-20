@@ -35,7 +35,7 @@ func(w *Works)CreateWorker(ctx context.Context,req *works.Request_Workers,res *w
 	res.Id = id
 	return nil
 }
-func(w *Works)UpdateWorker(ctx context.Context,req *works.Request_Workers,res *works.Response_CreateWorker)error{
+func(w *Works)UpdateWorker(ctx context.Context,req *works.Request_Workers_Change,res *works.Response_CreateWorker)error{
 	workers := &model.Workers{}
 	workers.Username = req.Username
 	workers.Password = req.Password
@@ -48,6 +48,7 @@ func(w *Works)UpdateWorker(ctx context.Context,req *works.Request_Workers,res *w
 	workers.Sex = req.Sex
 	workers.ISWork = req.ISWork
 	workers.Level = req.Level
+	workers.ID = req.Id
 	id,err := w.WorkService.CreateWorker(workers)
 	if err != nil{
 		res.Message = err.Error()
