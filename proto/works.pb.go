@@ -43,8 +43,8 @@ type LoginRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	User     string `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
-	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"` //未加密的password
+	User     string `protobuf:"bytes,1,opt,name=user,proto3" json:"user"`
+	Password string `protobuf:"bytes,2,opt,name=password,proto3" json:"password"` //未加密的password
 }
 
 func (x *LoginRequest) Reset() {
@@ -98,8 +98,8 @@ type LoginResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Code bool   `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
-	Msg  string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg,omitempty"`
+	Code bool   `protobuf:"varint,1,opt,name=code,proto3" json:"code"`
+	Msg  string `protobuf:"bytes,2,opt,name=msg,proto3" json:"msg"`
 }
 
 func (x *LoginResponse) Reset() {
@@ -191,18 +191,18 @@ type Request_Workers struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name        string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name,omitempty"`
-	Nums        string `protobuf:"bytes,2,opt,name=Nums,proto3" json:"Nums,omitempty"`
-	Sex         string `protobuf:"bytes,3,opt,name=Sex,proto3" json:"Sex,omitempty"`
-	Level       int64  `protobuf:"varint,4,opt,name=Level,proto3" json:"Level,omitempty"`
-	Score       int64  `protobuf:"varint,5,opt,name=Score,proto3" json:"Score,omitempty"`
-	Place       string `protobuf:"bytes,6,opt,name=Place,proto3" json:"Place,omitempty"`
-	Telephone   string `protobuf:"bytes,7,opt,name=Telephone,proto3" json:"Telephone,omitempty"`
-	Mail        string `protobuf:"bytes,8,opt,name=Mail,proto3" json:"Mail,omitempty"`
-	Description string `protobuf:"bytes,9,opt,name=Description,proto3" json:"Description,omitempty"`
-	ISWork      bool   `protobuf:"varint,10,opt,name=ISWork,proto3" json:"ISWork,omitempty"`
-	Username    string `protobuf:"bytes,11,opt,name=username,proto3" json:"username,omitempty"`
-	Password    string `protobuf:"bytes,12,opt,name=password,proto3" json:"password,omitempty"`
+	Name        string `protobuf:"bytes,1,opt,name=Name,proto3" json:"Name"`
+	Nums        string `protobuf:"bytes,2,opt,name=Nums,proto3" json:"Nums"`
+	Sex         string `protobuf:"bytes,3,opt,name=Sex,proto3" json:"Sex"`
+	Level       int64  `protobuf:"varint,4,opt,name=Level,proto3" json:"Level"`
+	Score       int64  `protobuf:"varint,5,opt,name=Score,proto3" json:"Score"`
+	Place       string `protobuf:"bytes,6,opt,name=Place,proto3" json:"Place"`
+	Telephone   string `protobuf:"bytes,7,opt,name=Telephone,proto3" json:"Telephone"`
+	Mail        string `protobuf:"bytes,8,opt,name=Mail,proto3" json:"Mail"`
+	Description string `protobuf:"bytes,9,opt,name=Description,proto3" json:"Description"`
+	ISWork      bool   `protobuf:"varint,10,opt,name=ISWork,proto3" json:"ISWork"`
+	Username    string `protobuf:"bytes,11,opt,name=username,proto3" json:"username"`
+	Password    string `protobuf:"bytes,12,opt,name=password,proto3" json:"password"`
 }
 
 func (x *Request_Workers) Reset() {
@@ -326,8 +326,8 @@ type Response_CreateWorker struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id      int64  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Message string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
+	Id      int64  `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
+	Message string `protobuf:"bytes,2,opt,name=message,proto3" json:"message"`
 }
 
 func (x *Response_CreateWorker) Reset() {
@@ -381,7 +381,7 @@ type Request_Workers_ID struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id int64 `protobuf:"varint,1,opt,name=id,proto3" json:"id"`
 }
 
 func (x *Request_Workers_ID) Reset() {
@@ -428,7 +428,7 @@ type Request_Workers_Nums struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Nums int64 `protobuf:"varint,1,opt,name=nums,proto3" json:"nums,omitempty"`
+	Nums int64 `protobuf:"varint,1,opt,name=nums,proto3" json:"nums"`
 }
 
 func (x *Request_Workers_Nums) Reset() {
@@ -475,7 +475,7 @@ type Request_Workers_Name struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name"`
 }
 
 func (x *Request_Workers_Name) Reset() {
@@ -522,7 +522,7 @@ type Response_Workers struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message"`
 }
 
 func (x *Response_Workers) Reset() {
@@ -569,7 +569,7 @@ type Response_Worker_Show struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Worker *Response_Workers_Info `protobuf:"bytes,1,opt,name=worker,proto3" json:"worker,omitempty"`
+	Worker *Response_Workers_Info `protobuf:"bytes,1,opt,name=worker,proto3" json:"worker"`
 }
 
 func (x *Response_Worker_Show) Reset() {
@@ -616,7 +616,7 @@ type Response_Workers_Show struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Workers []*Response_Workers_Info `protobuf:"bytes,1,rep,name=workers,proto3" json:"workers,omitempty"`
+	Workers []*Response_Workers_Info `protobuf:"bytes,1,rep,name=workers,proto3" json:"workers"`
 }
 
 func (x *Response_Workers_Show) Reset() {
@@ -663,17 +663,17 @@ type Response_Workers_Info struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	ID          int64  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID,omitempty"`
-	Name        string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name,omitempty"`
-	Nums        string `protobuf:"bytes,3,opt,name=Nums,proto3" json:"Nums,omitempty"`
-	Sex         string `protobuf:"bytes,4,opt,name=Sex,proto3" json:"Sex,omitempty"`
-	Level       int64  `protobuf:"varint,5,opt,name=Level,proto3" json:"Level,omitempty"`
-	Score       int64  `protobuf:"varint,6,opt,name=Score,proto3" json:"Score,omitempty"`
-	Place       string `protobuf:"bytes,7,opt,name=Place,proto3" json:"Place,omitempty"`
-	Telephone   string `protobuf:"bytes,8,opt,name=Telephone,proto3" json:"Telephone,omitempty"`
-	Mail        string `protobuf:"bytes,9,opt,name=Mail,proto3" json:"Mail,omitempty"`
-	Description string `protobuf:"bytes,10,opt,name=Description,proto3" json:"Description,omitempty"`
-	ISWork      bool   `protobuf:"varint,11,opt,name=ISWork,proto3" json:"ISWork,omitempty"`
+	ID          int64  `protobuf:"varint,1,opt,name=ID,proto3" json:"ID"`
+	Name        string `protobuf:"bytes,2,opt,name=Name,proto3" json:"Name"`
+	Nums        string `protobuf:"bytes,3,opt,name=Nums,proto3" json:"Nums"`
+	Sex         string `protobuf:"bytes,4,opt,name=Sex,proto3" json:"Sex"`
+	Level       int64  `protobuf:"varint,5,opt,name=Level,proto3" json:"Level"`
+	Score       int64  `protobuf:"varint,6,opt,name=Score,proto3" json:"Score"`
+	Place       string `protobuf:"bytes,7,opt,name=Place,proto3" json:"Place"`
+	Telephone   string `protobuf:"bytes,8,opt,name=Telephone,proto3" json:"Telephone"`
+	Mail        string `protobuf:"bytes,9,opt,name=Mail,proto3" json:"Mail"`
+	Description string `protobuf:"bytes,10,opt,name=Description,proto3" json:"Description"`
+	ISWork      bool   `protobuf:"varint,11,opt,name=ISWork,proto3" json:"ISWork"`
 }
 
 func (x *Response_Workers_Info) Reset() {
@@ -790,7 +790,7 @@ type Request_Worker_User struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Username string `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username,omitempty"`
+	Username string `protobuf:"bytes,1,opt,name=Username,proto3" json:"Username"`
 }
 
 func (x *Request_Worker_User) Reset() {
