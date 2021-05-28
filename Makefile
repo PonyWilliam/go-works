@@ -19,4 +19,6 @@ test:
 
 .PHONY: docker
 docker:
-	docker build . -t works:latest
+	docker build -t ponywilliam/go-work .
+	docker tag ponywilliam/go-work ponywilliam/go-work
+	docker push ponywilliam/go-work

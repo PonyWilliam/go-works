@@ -53,6 +53,7 @@ func (w *WorkersRepository) UpdateWorker(worker *model.Workers) (int64,error){
 		Username string `json:"user_name"`
 		Password string `json:"password"`
 	*/
+	fmt.Println(worker)
 	temp := map[string]interface{}{
 		"Name":worker.Name,
 		"Nums":worker.Nums,
@@ -89,10 +90,7 @@ func (w *WorkersRepository)CheckSum(username string,pwd string)bool{
 
 	temp := EncodeMD5(pwd)
 	worker := model.Workers{}
-	fmt.Println("username:" + username)
 	w.mysqlDB.Where("username = ?",username).Find(&worker)
-	fmt.Println("password:" + temp)
-	fmt.Println("sql:" + worker.Password)
 	if worker.Password == temp{
 		return true
 	}else{

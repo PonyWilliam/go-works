@@ -26,6 +26,7 @@ func(w *Works)CreateWorker(ctx context.Context,req *works.Request_Workers,res *w
 	workers.Sex = req.Sex
 	workers.ISWork = req.ISWork
 	workers.Level = req.Level
+	workers.Mail = req.Mail
 	id,err := w.WorkService.CreateWorker(workers)
 	if err != nil{
 		res.Message = err.Error()
@@ -49,7 +50,8 @@ func(w *Works)UpdateWorker(ctx context.Context,req *works.Request_Workers_Change
 	workers.ISWork = req.ISWork
 	workers.Level = req.Level
 	workers.ID = req.Id
-	id,err := w.WorkService.CreateWorker(workers)
+	workers.Mail = req.Mail
+	id,err := w.WorkService.UpdateWorker(workers)
 	if err != nil{
 		res.Message = err.Error()
 		return err
